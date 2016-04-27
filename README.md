@@ -1,2 +1,2 @@
 # poc-onesignal
-POC for OneSignal
+Simple demo of using OneSignal
