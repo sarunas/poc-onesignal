@@ -16,10 +16,16 @@
                 enable: true // Set to false to hide
             }
         }]);
+        OneSignal.push(['sendTags', {'key': 'value'}]);
+        OneSignal.push(["getUserId", function(userId) {
+            console.log("OneSignal User ID:", userId);
+        }]);
     </script>
 </head>
 <body>
 <h1>poc-onesignal</h1>
 <p>Simple demo of using OneSignal</p>
+
+
 </body>
 </html>
