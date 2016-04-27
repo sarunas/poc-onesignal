@@ -1,7 +1,7 @@
 {
   "name": "OneSignal Example",
   "short_name": "OneSignalExample",
-  "start_url": "/",
+  "start_url": "/poc-onesignal/",
   "display": "standalone",
   "gcm_sender_id": "15170063787",
   "gcm_user_visible_only": true
