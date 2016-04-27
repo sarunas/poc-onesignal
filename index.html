@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <title>POC</title>
 
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/poc-onesignal/manifest.json">
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
     <script>
         var OneSignal = OneSignal || [];
         OneSignal.push(["init", {
             appId: "b23e7c52-c4aa-4008-91be-dc3214f15119",
+            path: "/poc-onesignal/",
             autoRegister: false,
             notifyButton: {
                 enable: true // Set to false to hide
