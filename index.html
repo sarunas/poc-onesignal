@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <title>POC</title>
 
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
+    <link rel="manifest" href="/manifest.json">
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
     <script>
         var OneSignal = OneSignal || [];
         OneSignal.push(["init", {
             appId: "b23e7c52-c4aa-4008-91be-dc3214f15119",
-            subdomainName: 'poc-onesignal',
+            autoRegister: false,
             notifyButton: {
                 enable: true // Set to false to hide
             }
