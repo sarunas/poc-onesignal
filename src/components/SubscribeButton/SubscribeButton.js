@@ -26,7 +26,7 @@ export default class SubscribeButton extends React.Component {
                 });
             });
             OneSignal.push(function() {
-                OneSignal.on('subscriptionChange', function (isSubscribed) {
+                OneSignal.on('subscriptionChange', (isSubscribed) => {
                     this.setState({
                         inEnabled: isSubscribed
                     });

@@ -20112,8 +20112,10 @@
 	                    });
 	                });
 	                _onesignal2.default.push(function () {
+	                    var _this3 = this;
+
 	                    _onesignal2.default.on('subscriptionChange', function (isSubscribed) {
-	                        this.setState({
+	                        _this3.setState({
 	                            inEnabled: isSubscribed
 	                        });
 	                    });
