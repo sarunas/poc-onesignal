@@ -11,9 +11,9 @@ export default class SubscribeButton extends React.Component {
     }
 
     subscribe() {
-        OneSignal.push(() => {
-            OneSignal.registerForPushNotifications();
-        });
+        console.log('Subscribe');
+        OneSignal.push(["registerForPushNotifications"]);
+        event.preventDefault();
     }
 
     componentDidMount() {

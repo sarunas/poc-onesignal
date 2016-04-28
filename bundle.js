@@ -20094,9 +20094,9 @@
 	    _createClass(SubscribeButton, [{
 	        key: 'subscribe',
 	        value: function subscribe() {
-	            _onesignal2.default.push(function () {
-	                _onesignal2.default.registerForPushNotifications();
-	            });
+	            console.log('Subscribe');
+	            _onesignal2.default.push(["registerForPushNotifications"]);
+	            event.preventDefault();
 	        }
 	    }, {
 	        key: 'componentDidMount',
