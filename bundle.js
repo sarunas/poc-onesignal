@@ -20095,7 +20095,9 @@
 	        key: 'subscribe',
 	        value: function subscribe() {
 	            console.log('Subscribe');
-	            _onesignal2.default.push(["registerForPushNotifications"]);
+	            _onesignal2.default.push(function () {
+	                _onesignal2.default.registerForPushNotifications();
+	            });
 	            event.preventDefault();
 	        }
 	    }, {
