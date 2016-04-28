@@ -20141,7 +20141,7 @@
 	            }
 	            return _react2.default.createElement(
 	                'button',
-	                { onclick: this.subscribe },
+	                { onClick: this.subscribe },
 	                'Subscribe'
 	            );
 	        }

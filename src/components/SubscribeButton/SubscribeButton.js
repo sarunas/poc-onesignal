@@ -44,6 +44,6 @@ export default class SubscribeButton extends React.Component {
         if (this.state.isEnabled) {
             return (<p>Push notification are enabled!</p>);
         }
-        return (<button onclick={this.subscribe}>Subscribe</button>);
+        return (<button onClick={this.subscribe}>Subscribe</button>);
     }
 }
