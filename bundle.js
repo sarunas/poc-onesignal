@@ -20116,7 +20116,7 @@
 	                _onesignal2.default.push(function () {
 	                    _onesignal2.default.on('subscriptionChange', function (isSubscribed) {
 	                        _this2.setState({
-	                            inEnabled: isSubscribed
+	                            isEnabled: isSubscribed
 	                        });
 	                    });
 	                });
