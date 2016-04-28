@@ -20064,6 +20064,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _onesignal = __webpack_require__(167);
+
+	var _onesignal2 = _interopRequireDefault(_onesignal);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20075,18 +20079,67 @@
 	var SubscribeButton = function (_React$Component) {
 	    _inherits(SubscribeButton, _React$Component);
 
-	    function SubscribeButton() {
+	    function SubscribeButton(props) {
 	        _classCallCheck(this, SubscribeButton);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(SubscribeButton).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SubscribeButton).call(this, props));
+
+	        _this.state = {
+	            isPushNotificationsSupported: false,
+	            isEnabled: false
+	        };
+	        return _this;
 	    }
 
 	    _createClass(SubscribeButton, [{
+	        key: 'subscribe',
+	        value: function subscribe() {
+	            _onesignal2.default.push(['registerForPushNotifications']);
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var _this2 = this;
+
+	            _onesignal2.default.push(function () {
+	                if (!_onesignal2.default.isPushNotificationsSupported()) {
+	                    return;
+	                }
+	                _onesignal2.default.isPushNotificationsEnabled(function (isEnabled) {
+	                    _this2.setState({
+	                        isPushNotificationsSupported: true,
+	                        isEnabled: isEnabled
+	                    });
+	                });
+	                _onesignal2.default.push(function () {
+	                    _onesignal2.default.on('subscriptionChange', function (isSubscribed) {
+	                        this.setState({
+	                            inEnabled: isSubscribed
+	                        });
+	                    });
+	                });
+	            });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
+	            if (!this.state.isPushNotificationsSupported) {
+	                return _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Push notification are not supported by your browser!'
+	                );
+	            }
+	            if (this.state.isEnabled) {
+	                return _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Push notification are enabled!'
+	                );
+	            }
 	            return _react2.default.createElement(
 	                'button',
-	                null,
+	                { onclick: this.subscribe },
 	                'Subscribe'
 	            );
 	        }
@@ -20096,6 +20149,12 @@
 	}(_react2.default.Component);
 
 	exports.default = SubscribeButton;
+
+/***/ },
+/* 167 */
+/***/ function(module, exports) {
+
+	module.exports = OneSignal;
 
 /***/ }
 /******/ ]);
